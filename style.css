@@ -1,0 +1,538 @@
+body {
+    display: grid;
+    counter-reset: score;
+    height: 100vh;
+    margin: 0;
+    place-items: center;
+    width: 100%;
+}
+    
+input[type=checkbox] {
+    appearance: none;
+    cursor: pointer;
+    height: 50px;
+    margin: 0;
+    position: relative;
+    top: 0;
+    width: 80px;
+    z-index: 2;
+}
+
+input[type=checkbox]:focus {
+    appearance: none;
+    outline: none;
+}
+
+input:checked {
+counter-increment: score;   
+}
+
+
+.score {
+    color: var(--light-brown);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+}
+
+.score::after {
+    content: counter(score);
+}
+
+.phone {
+    background: linear-gradient(#540060 -1%, #00b2ff);
+    border: 8px solid black;
+    border-radius: 40px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    height: 600px;
+    position: relative;
+    width: 300px;
+}
+
+.character-2, .character-6 {
+    animation-name: eyes;
+    animation-timing-function: cubic-bezier(0, 0.86, 0.76, -0.18);
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    width: 80px;
+    bottom: 0;
+}
+
+.character-1 .head, .character-4 .head {
+    border-radius: 50% 50% 10% 10%  ;
+}
+
+.character-1 {
+    height: 550px;
+    position: absolute;
+    right: 60px;
+    bottom: 0;
+}
+
+.character-1 > div.head, .character-1 > input[type=checkbox] {
+    animation: 0.8s salto ease-in-out infinite alternate-reverse;
+}
+input[type="checkbox"]:checked + .head {
+    animation: 4s dead forwards;
+}
+
+.character-2 {
+    height: 390px;
+    position: absolute;
+    left: 60px;
+    z-index: 2;
+    animation-duration: 1.5s;
+}
+.character-4 {
+    width: 80px;
+    bottom: 0;
+    height: 350px;
+    left: 15px;
+    position: absolute;
+    z-index: 4;
+    animation-duration: 2s;
+}
+
+.character-4 > div.head, .character-4 > input[type=checkbox] {
+    animation: 0.5s salto infinite alternate-reverse;
+}
+input[type="checkbox"]:checked + .head {
+    animation: 4s dead forwards;
+}
+
+.character-6 {
+    height: 180px;
+    position: absolute;
+    right: 30px;
+    z-index: 6;     
+    animation-duration: 3s;
+}
+
+.character-6 .eye-head {
+    border: 2px solid #000;
+    background-color: #8bc7f7;
+    width: 40%;
+    height: 40%;
+    animation-name: move2;
+    animation-direction: alternate-reverse;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.character-2 .eye-head, .character-6 .eye-head, .eye  {
+    position: absolute;
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.character-2 .eye-head {
+    border: 2px solid #000;
+    background-color: #8bc7f7;
+    width: 40%;
+    height: 40%;
+    animation-name: move;
+    animation-direction: alternate-reverse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.eye {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+}
+
+.head {
+    background: white;
+    border-radius: 50%;
+    height: 80px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 100%;
+}
+
+.head-lips {
+    background-color: #544c4c;
+    border: 1px solid #544c4c;
+    border-radius: 50% 50% 10% 10%;
+    position: absolute;
+    width: 30px;
+    height: 18px;
+    top: 31px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.head-eye {
+    background-color: #544c4c;
+    border: 1px solid #544c4c;
+    border-radius: 50%;
+    height: 15px;
+    position: absolute;
+    top: 15px;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+.head-eye-left {
+    left: 16px;
+    width: 21px;
+    border-radius: 89px 20px;
+
+}
+
+.head-eye-right {
+    right: 16px;
+    width: 21px;
+    border-radius: 20px 89px;
+}
+
+.lawn {
+    background: #163019;
+    height: 20px;
+    width: 100%;
+}
+
+.land {
+    background: linear-gradient(135deg, #163019 25%, transparent 25%) -50px 0,
+        linear-gradient(-135deg, #163019 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, #163019 25%, transparent 25%);
+    /* background-size: 33px 30px; */
+    height: 100%;
+    width: 100%;
+}
+
+.layer-3, .layer-5, .layer-7 {
+    background-color: #281d0e;
+    box-shadow:  0 19px 38px rgba(0,0,0,0.30),
+                0 15px 12px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    bottom: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.layer-3 {
+    height: 400px;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+    width: 220px;
+    z-index: 3;
+}
+
+.layer-5 {
+    height: 300px;
+    width: 200px;
+    z-index: 5;
+}
+
+
+.layer-7 {  
+    height: 200px;
+    right: 0;
+    width: 150px;
+    z-index: 7;
+}
+
+.layer-8 {
+    bottom: 0;
+    height: 120px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    z-index: 8;
+}
+
+.stem {
+    position: absolute;
+    top: 15px;
+    left: 6px;
+    right: 0;
+    margin: auto;
+    height: 29px;
+    width: 13px;
+    background-color: #038717;
+    border-radius: 520% 20% 20%;
+    
+}
+
+.pumpkin-left {
+    background: #f98b02;
+    border: 2px solid #814700;
+    border-radius: 50%;
+    bottom: 0;
+    display: inline-block;
+    height: 75%;
+    left: 31px;
+    position: absolute;
+    width: 80px;
+}
+
+.pumpkin-center {
+    background: #f98b02;
+    border-right: 4px solid #814700;
+    border-left: 4px solid #814700;
+    border-radius: 40px 40px 45% 45%;
+    bottom: 0;
+    display: inline-block;
+    height:70%;
+    left: 60px;
+    position: absolute;
+    width: 80px;
+}
+
+.pumpkin-right {
+    background: #f98b02;
+    border: 2px solid #814700;
+    border-radius: 50%;
+    bottom: 0;
+    display: inline-block;
+    height: 75%;
+    left: 92px;
+    position: absolute;
+    width: 80px;
+}
+
+.pumpkin-eye-left {
+    position: absolute;
+    width: 14px;
+    height: 20px;
+    background: #000;
+    left: 11px;
+    top: 20px;
+    border-left: 7px solid #f9b43b;
+    border-radius: 50%;
+}
+
+.pumpkin-eye-right {
+    position: absolute;
+    width: 14px;
+    height: 20px;
+    background: #000;
+    right: 11px;
+    top: 20px;
+    border-radius: 50%;
+    border-right: 7px solid #f9b43b;
+}
+
+.pumpkin-mouth {
+    height: 14px;
+    width: 15px;
+    position: absolute;
+    bottom: 30px;
+    background-color: #000;
+    left: 0;
+    right: 0;
+    border-radius: 20% 520% 20% 20%;
+    margin: auto;
+    transform: rotate(131deg);
+}
+
+.pumpkin-mouth-right {
+    height: 10px;
+    width: 32px;
+    position: absolute;
+    bottom: 15px;
+    background-color: #000;
+    right: 39px;
+    border-radius: 20% 520% 20% 20%;
+    margin: auto;
+    transform: rotate(202deg);
+}
+
+.pumpkin-mouth-left {
+    height: 10px;
+    width: 30px;
+    position: absolute;
+    bottom: 16px;
+    background-color: #000;
+    left: 40px;
+    border-radius: 20% 20% 520% 20%;
+    margin: auto;
+    transform: rotate(-27deg);
+}
+
+.layer-9 {
+    bottom: 0;
+    height: 154px;
+    position: absolute;
+    width: 120px;
+    z-index: 7;
+}
+
+.left-cloud-top {
+    transform: rotate(-10deg);
+    background: #8b8989;
+    border: solid 8px #6c6c6c;
+    border-radius: 49px 49px 0 0;
+    display: inline-block;
+    height: 100%;
+    left: -10px;
+    position: absolute;
+    width: 100%;
+}
+
+.left-cloud-top p, .right-cloud-bottom p {
+    text-align: center;
+    margin: 10px;
+    color: #585757;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.left-cloud-bottom {
+    background: white;
+    border-radius: 0 40px 30px 0;
+    bottom: 0;
+    display: inline-block;
+    height: 60%;
+    left: 80px;
+    position: absolute;
+    width: 40px;
+}
+
+.layer-10 {
+    bottom: 0;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    width: 120px;
+    z-index: 7;
+}
+
+.right-cloud-top {
+    background: white;
+    border-radius: 40px 0 0 30px;
+    bottom: 0;
+    display: inline-block;
+    height: 60%;
+    right: 80px;
+    position: absolute;
+    width: 40px;
+}
+
+.right-cloud-bottom {
+    transform: rotate(12deg);
+    background: #7c7c7c;
+    border: solid 10px #5e5e5e;
+    border-radius: 44px 44px 0 0;
+    display: inline-block;
+    height: 100%;
+    right: -3px;
+    position: absolute;
+    width: 75%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin: 45px 0 10px;
+}
+
+.title img {
+    width: 60%;
+}
+
+/* input[type="checkbox"]:checked + .head {
+    animation: eyes 1s ease;
+} */
+
+@keyframes blink {
+    0% { 
+    }
+    50% { 
+        border-radius: 50%;
+    }
+}
+
+@keyframes layer {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-80px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes eyes {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 140px;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(-18px);
+    }
+    25% {
+        transform: translateX(18px);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes move2 {
+    0% {
+        transform: translateY(-18px);
+    }
+    20% {
+        transform: translateX(-20px);
+    }
+    30% {
+        transform: translateY(20px);
+    }
+    40% {
+        transform: translateX(20px);
+    }
+    60% {
+        transform: translateY(-18px);
+    }
+}
+
+
+
+@keyframes salto {
+    from {
+        transform: translateY(250px);
+    }
+    to {
+        transform: translateY(-35px);
+    }
+}
+
+
+
+@keyframes dead {
+    0% {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-600px);
+    }
+}
